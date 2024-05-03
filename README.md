@@ -15,7 +15,7 @@
 5. **Verify DELETE Request for Genres**: Test the `DELETE /genres/:id` to ensure that it is working correctly. Confirm that the specified genre is removed by testing `GET /genres` requests.
 
 6. Review and understand the logic implemented in the delete and put controllers, and how they utilize input from params and body.
-   Implement controllers for `GET /genres/:id` and `POST /genres/:id`.
+   Implement controllers for `GET /genres/:id` and `POST /genres`.
 
 7. Create the new requests in the corresponding folder in Thunder and test that the entire CRUD functionality works correctly.
 
