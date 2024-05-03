@@ -1,6 +1,6 @@
 ## Express API
 
-### Setting Up Morgan and Refactoring Route Definitions
+### Refactor Genre Route Controllers
 
 > **IMPORTANT: 🚫 Do not modify imported request configurations without explicit instructions.**
 
@@ -8,19 +8,14 @@
 
 2. **Import the environments and collection**
 
-3. **Test PUT Request for Genre Update**: Test the `PUT /genres/:id` request to update. Ensure that the route is correctly implemented and passes all tests.
+3. **Review Changes in Data Structure**: Examine and adapt the changes in the data structure located in `./data.js`.
 
-4. **Test GET Request to Verify Genre Update**: Execute `GET /genres` to verify that the genre has been updated correctly.
+4. **Update Genre Route Controllers**: Modify the genre route controllers to work with the new data structures.
 
-5. **Verify DELETE Request for Genres**: Test the `DELETE /genres/:id` to ensure that it is working correctly. Confirm that the specified genre is removed by testing `GET /genres` requests.
+5. **Verify Genre Requests in Thunder**: Test all genre requests in Thunder to ensure that they function correctly with the updated route controllers and data structure.
 
-6. Review and understand the logic implemented in the delete and put controllers, and how they utilize input from params and body.
-   Implement controllers for `GET /genres/:id` and `POST /genres/:id`.
-
-7. Create the new requests in the corresponding folder in Thunder and test that the entire CRUD functionality works correctly.
-
-8. **Completion**: Once finished, proceed to the next exercise by executing:
+6. **Completion**: Once finished, proceed to the next exercise by executing:
 
 ```bash
-  git checkout exercise4
+  git checkout exercise5
 ```

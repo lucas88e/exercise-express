@@ -1,0 +1,219 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "exercise4-api",
+    "dateExported": "2024-05-03T13:32:24.337Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "495cdf14-a2b2-4694-86a8-644a992eff3f",
+            "name": "Testing",
+            "containerId": "",
+            "created": "2024-05-03T13:30:14.733Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "18404d50-9346-42c3-950f-43e2d1f326ca",
+            "name": "Movie",
+            "containerId": "",
+            "created": "2024-05-03T13:30:14.734Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "fc32dab5-70fa-4823-b69f-94a8e55186c0",
+            "name": "Genre",
+            "containerId": "",
+            "created": "2024-05-03T13:30:14.735Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "6dd30980-89c7-4451-891e-8fea42fdeeec",
+            "colId": "37c1f3bf-ecef-48fa-a374-9128971e602b",
+            "containerId": "495cdf14-a2b2-4694-86a8-644a992eff3f",
+            "name": "/health",
+            "url": "/health",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-05-03T13:30:14.733Z",
+            "modified": "2024-05-03T13:30:14.733Z",
+            "headers": [],
+            "params": [],
+            "tests": [],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"There is a linked environment called 'express-api-env\", () => {",
+                            "    const {environmentName} = tc.info",
+                            "    ",
+                            "    expect(environmentName).to.be.ok;",
+                            "    expect(environmentName).to.equal(\"express-api-env\");",
+                            "});",
+                            "",
+                            "tc.test(\"The environment variable 'host' exists\", () => {",
+                            "      expect(tc.getVar(\"host\")).to.be.ok",
+                            "})",
+                            "",
+                            "tc.test(\"Ensure 'host' environment variable and collection settings set expected Base URL\", () => {",
+                            "      const relativePath = tc.request.url.replace(tc.getVar(\"host\") + \"/api\", \"\")",
+                            "      ",
+                            "      expect(tc.getVar(\"host\")).to.equal(\"localhost:3000\");",
+                            "    ",
+                            "      expect(relativePath).to.equal(\"/health\");",
+                            "})",
+                            "",
+                            "tc.test(\"Should respond with status 200\", () => {",
+                            "      expect(tc.response.status).to.equal(200);",
+                            "})",
+                            "",
+                            "tc.test(\"Should respond with relevant data in JSON: {success: true, data }\", () => {",
+                            "      const responseBody = tc.response.json",
+                            "    ",
+                            "      expect(responseBody).to.be.an(\"object\");",
+                            "      ",
+                            "      expect(responseBody).to.have.property(\"success\");",
+                            "      expect(responseBody).to.have.property(\"data\");",
+                            "      ",
+                            "      expect(responseBody.success).to.equal(true);",
+                            "})"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "181af132-a465-40f7-95ac-66a552e75715",
+            "colId": "37c1f3bf-ecef-48fa-a374-9128971e602b",
+            "containerId": "18404d50-9346-42c3-950f-43e2d1f326ca",
+            "name": "/movies",
+            "url": "/movies",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-05-03T13:30:14.734Z",
+            "modified": "2024-05-03T13:30:14.734Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f7e03ae8-fa26-4d79-8e2b-0fa19c377754",
+            "colId": "37c1f3bf-ecef-48fa-a374-9128971e602b",
+            "containerId": "fc32dab5-70fa-4823-b69f-94a8e55186c0",
+            "name": "/genres",
+            "url": "/genres",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-05-03T13:30:14.735Z",
+            "modified": "2024-05-03T13:30:14.735Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "554ab560-b90c-4431-a33e-53e644f9e512",
+            "colId": "37c1f3bf-ecef-48fa-a374-9128971e602b",
+            "containerId": "fc32dab5-70fa-4823-b69f-94a8e55186c0",
+            "name": "/genres/:id",
+            "url": "/genres/802cbb0e-bf47-49a6-beca-6f22f0d50f88",
+            "method": "GET",
+            "sortNum": 22500,
+            "created": "2024-05-03T13:30:14.736Z",
+            "modified": "2024-05-03T13:30:14.736Z",
+            "headers": [],
+            "params": [],
+            "tests": [],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Verify request body is parsed as JSON\", () => {",
+                            "  expect(tc.response.json).to.have.property('name')",
+                            "})"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "106f7027-148e-4d84-9bd3-e1134fd6f2b4",
+            "colId": "37c1f3bf-ecef-48fa-a374-9128971e602b",
+            "containerId": "fc32dab5-70fa-4823-b69f-94a8e55186c0",
+            "name": "/genres",
+            "url": "/genres",
+            "method": "POST",
+            "sortNum": 25000,
+            "created": "2024-05-03T13:30:14.737Z",
+            "modified": "2024-05-03T13:30:14.737Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Comedy\"\n}",
+                "form": []
+            },
+            "tests": [],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Verify request body is parsed as JSON\", () => {",
+                            "  expect(tc.response.json).to.have.property('name')",
+                            "})"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "c3850fb8-9305-4e56-ab9c-b4e00626aaeb",
+            "colId": "37c1f3bf-ecef-48fa-a374-9128971e602b",
+            "containerId": "fc32dab5-70fa-4823-b69f-94a8e55186c0",
+            "name": "/genres/:id",
+            "url": "/genres/802cbb0e-bf47-49a6-beca-6f22f0d50f88",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-05-03T13:30:14.738Z",
+            "modified": "2024-05-03T13:30:14.738Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Science Fiction\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1d5e1007-4579-4975-8daf-8c9a1efd201d",
+            "colId": "37c1f3bf-ecef-48fa-a374-9128971e602b",
+            "containerId": "fc32dab5-70fa-4823-b69f-94a8e55186c0",
+            "name": "/genres/:id",
+            "url": "/genres/f5d5e8a2-c1ab-44e7-936d-d6e7bcfbf313",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-05-03T13:30:14.739Z",
+            "modified": "2024-05-03T13:30:14.739Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "{{host}}/api"
+        },
+        "postReq": {
+            "inlineScripts": [
+                {
+                    "script": [
+                        "tc.test(\"Verify server is running\", () => {",
+                        "    expect(tc.response.status).to.not.equal(0);",
+                        "});",
+                        ""
+                    ]
+                }
+            ]
+        }
+    }
+}

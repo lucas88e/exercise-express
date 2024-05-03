@@ -10,11 +10,25 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-	// Your code here
+	const { id } = req.params
+	const genre = genres.find((genre) => genre.id === id)
+
+	if (!genre) {
+		return res.status(404).json({ error: 'Genre not found' })
+	}
+
+	res.json(genre)
 })
 
 router.post('/', (req, res) => {
-	// Your code here
+	const newGenre = {
+		id: generateUniqueId(),
+		...req.body,
+	}
+
+	genres.push(newGenre)
+
+	res.status(201).json(newGenre)
 })
 
 router.put('/:id', (req, res) => {
