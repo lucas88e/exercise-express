@@ -1,7 +1,7 @@
 {
 	"name": "express-api",
-	"description": "Passing the Health Check",
-	"version": "1.0.0",
+	"description": "Setting Up Morgan and Refactoring Route Definitions",
+	"version": "2.0.0",
 	"main": "app.js",
 	"scripts": {
 		"start": "node --watch app.js"
@@ -10,7 +10,6 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"express": "^4.19.2",
-		"morgan": "^1.10.0"
+		"express": "^4.19.2"
 	}
 }
