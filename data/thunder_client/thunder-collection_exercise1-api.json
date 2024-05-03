@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "exercise1-api",
-    "dateExported": "2024-05-03T08:56:00.003Z",
+    "dateExported": "2024-05-03T10:55:56.883Z",
     "version": "1.1",
     "folders": [
         {
@@ -68,5 +68,19 @@
                 ]
             }
         }
-    ]
+    ],
+    "settings": {
+        "postReq": {
+            "inlineScripts": [
+                {
+                    "script": [
+                        "tc.test(\"Verify server is running\", () => {",
+                        "    expect(tc.response.status).to.not.equal(0);",
+                        "});",
+                        ""
+                    ]
+                }
+            ]
+        }
+    }
 }
