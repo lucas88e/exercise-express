@@ -6,7 +6,7 @@
 
 1. **Install Dependencies**: Ensure all dependencies
 
-2. **Delete Previous Collections**: Remove previously created collections and environments, then import new ones from `./data/thunder_client`.
+2. **Import Collections**: Import the environment and collection from the directory `./data/thunder_client`
 
 3. **Configure Morgan**: Set up Morgan with the `'dev'` format in ./app.js.
 
