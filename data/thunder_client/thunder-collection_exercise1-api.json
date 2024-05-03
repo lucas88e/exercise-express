@@ -1,0 +1,72 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "exercise1-api",
+    "dateExported": "2024-05-03T08:56:00.003Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "d3a4b84b-6c39-4a3c-b0f6-d5e145630375",
+            "name": "Testing",
+            "containerId": "",
+            "created": "2024-05-03T08:17:25.125Z",
+            "sortNum": 10000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "ff85c1a6-4717-45ab-aaf1-ce7cfa20bd61",
+            "colId": "964c0248-7f80-4f9f-9045-3987a2f5543b",
+            "containerId": "d3a4b84b-6c39-4a3c-b0f6-d5e145630375",
+            "name": "/health",
+            "url": "/health",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-05-03T08:17:42.243Z",
+            "modified": "2024-05-03T08:52:19.823Z",
+            "headers": [],
+            "params": [],
+            "tests": [],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"There is a linked environment called 'express-api-env\", () => {",
+                            "    const {environmentName} = tc.info",
+                            "  ",
+                            "    expect(environmentName).to.be.ok;",
+                            "    expect(environmentName).to.equal(\"express-api-env\");",
+                            "});",
+                            "",
+                            "tc.test(\"the environment variable 'host' exists\", () => {",
+                            "      expect(tc.getVar(\"host\")).to.be.ok",
+                            "})",
+                            "",
+                            "tc.test(\"ensure 'host' environment variable and collection settings set expected Base URL\", () => {",
+                            "      const relativePath = tc.request.url.replace(tc.getVar(\"host\") + \"/api\", \"\")",
+                            "      ",
+                            "      expect(tc.getVar(\"host\")).to.equal(\"localhost:3000\");",
+                            "    ",
+                            "      expect(relativePath).to.equal(\"/health\");",
+                            "})",
+                            "",
+                            "tc.test(\"should respond with status 200\", () => {",
+                            "      expect(tc.response.status).to.equal(200);",
+                            "})",
+                            "",
+                            "tc.test(\"should respond with relevant data in JSON: {success: true, data }\", () => {",
+                            "      const responseBody = tc.response.json",
+                            "      ",
+                            "      expect(responseBody).to.be.an(\"object\");",
+                            "      ",
+                            "      expect(responseBody).to.have.property(\"success\");",
+                            "      expect(responseBody).to.have.property(\"data\");",
+                            "      ",
+                            "      expect(responseBody.success).to.equal(true);",
+                            "})"
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}
