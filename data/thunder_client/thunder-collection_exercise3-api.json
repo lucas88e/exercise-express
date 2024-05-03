@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "exercise3-api",
-    "dateExported": "2024-05-03T13:06:34.319Z",
+    "dateExported": "2024-05-03T13:34:21.268Z",
     "version": "1.1",
     "folders": [
         {
@@ -91,30 +91,10 @@
             "method": "GET",
             "sortNum": 20000,
             "created": "2024-05-03T12:19:21.121Z",
-            "modified": "2024-05-03T12:19:21.121Z",
+            "modified": "2024-05-03T13:30:09.104Z",
             "headers": [],
             "params": [],
-            "tests": [],
-            "postReq": {
-                "inlineScripts": [
-                    {
-                        "script": [
-                            "tc.test(\"Verify correct import of movie data\", () => {",
-                            "  const movies = JSON.parse(tc.getVar('movies'))",
-                            "",
-                            "  expect(tc.response.status).to.not.equal(0);",
-                            "  expect(tc.response.status).to.not.equal(500);",
-                            "",
-                            "  expect(tc.response.text).to.not.contain(\"movies is not defined\");",
-                            " ",
-                            "  expect(tc.response.json).to.deep.equal(movies);",
-                            "",
-                            "});",
-                            ""
-                        ]
-                    }
-                ]
-            }
+            "tests": []
         },
         {
             "_id": "cc69fd4c-e661-4afc-a0cf-f2fa71978c2e",
@@ -125,29 +105,10 @@
             "method": "GET",
             "sortNum": 20000,
             "created": "2024-05-03T12:19:21.122Z",
-            "modified": "2024-05-03T12:19:21.122Z",
+            "modified": "2024-05-03T13:29:24.056Z",
             "headers": [],
             "params": [],
-            "tests": [],
-            "postReq": {
-                "inlineScripts": [
-                    {
-                        "script": [
-                            "tc.test(\"Verify correct import of genre data\", () => {",
-                            "  const genres = JSON.parse(tc.getVar('genres'))",
-                            "  ",
-                            "  expect(tc.response.status).to.not.equal(0);",
-                            "  expect(tc.response.status).to.not.equal(500);",
-                            "  ",
-                            "  expect(tc.response.text).to.not.contain(\"genres is not defined\");",
-                            " ",
-                            "  expect(tc.response.json).to.deep.equal(genres);",
-                            "});",
-                            ""
-                        ]
-                    }
-                ]
-            }
+            "tests": []
         },
         {
             "_id": "a554c7ee-5f6c-4702-abb4-f52311c5c2ce",
@@ -158,7 +119,7 @@
             "method": "PUT",
             "sortNum": 30000,
             "created": "2024-05-03T12:19:37.710Z",
-            "modified": "2024-05-03T12:45:05.669Z",
+            "modified": "2024-05-03T13:29:48.240Z",
             "headers": [],
             "params": [],
             "body": {
@@ -166,18 +127,7 @@
                 "raw": "{\n  \"name\": \"Science Fiction\"\n}",
                 "form": []
             },
-            "tests": [],
-            "postReq": {
-                "inlineScripts": [
-                    {
-                        "script": [
-                            "tc.test(\"Verify request body is parsed as JSON\", () => {",
-                            "  expect(tc.response.json).to.have.property('name')",
-                            "})"
-                        ]
-                    }
-                ]
-            }
+            "tests": []
         },
         {
             "_id": "9788aff5-eb39-4619-bf06-1bfee40fb50c",
@@ -202,55 +152,6 @@
             "inlineScripts": [
                 {
                     "script": [
-                        "const movies = [",
-                        "\t{",
-                        "\t\tid: 'c1758fd3-82c2-4c35-b4e7-b9e78b37a0c2',",
-                        "\t\ttitle: 'The Secret Garden',",
-                        "\t\tyear: 2020,",
-                        "\t\tgenreId: 'a5c3e8b1-8502-4e7e-891b-d30a756a8ad4',",
-                        "\t\tdirector: 'Marc Munden',",
-                        "\t},",
-                        "\t{",
-                        "\t\tid: '7a93ab49-8600-4a70-a04b-28f3cc459fe0',",
-                        "\t\ttitle: \"Harry Potter and the Philosopher's Stone\",",
-                        "\t\tyear: 2001,",
-                        "\t\tgenreId: 'a5c3e8b1-8502-4e7e-891b-d30a756a8ad4',",
-                        "\t\tdirector: 'Chris Columbus',",
-                        "\t},",
-                        "\t{",
-                        "\t\tid: '82e85b7f-ae47-4c0c-9732-28b2f689c0b0',",
-                        "\t\ttitle: 'Inception',",
-                        "\t\tyear: 2010,",
-                        "\t\tgenreId: '802cbb0e-bf47-49a6-beca-6f22f0d50f88',",
-                        "\t\tdirector: 'Christopher Nolan',",
-                        "\t},",
-                        "\t{",
-                        "\t\tid: '2a39fb4e-26fb-41a3-b7a5-d307e944ec48',",
-                        "\t\ttitle: 'The Shawshank Redemption',",
-                        "\t\tyear: 1994,",
-                        "\t\tgenreId: 'f5d5e8a2-c1ab-44e7-936d-d6e7bcfbf313',",
-                        "\t\tdirector: 'Frank Darabont',",
-                        "\t},",
-                        "]",
-                        "",
-                        "const genres = [",
-                        "\t{",
-                        "\t\tid: 'a5c3e8b1-8502-4e7e-891b-d30a756a8ad4',",
-                        "\t\tname: 'Fantasy',",
-                        "\t},",
-                        "\t{",
-                        "\t\tid: '802cbb0e-bf47-49a6-beca-6f22f0d50f88',",
-                        "\t\tname: 'Sci-Fi',",
-                        "\t},",
-                        "\t{",
-                        "\t\tid: 'f5d5e8a2-c1ab-44e7-936d-d6e7bcfbf313',",
-                        "\t\tname: 'Drama',",
-                        "\t},",
-                        "]",
-                        "",
-                        "tc.setVar('movies', movies, 'request')",
-                        "tc.setVar('genres', genres, 'request')",
-                        "",
                         "tc.test(\"Verify server is running\", () => {",
                         "    expect(tc.response.status).to.not.equal(0);",
                         "});",
@@ -258,7 +159,6 @@
                     ]
                 }
             ]
-        },
-        "envId": "74ac5446-d3e1-4d4a-822e-2d38bbea1b91"
+        }
     }
 }
