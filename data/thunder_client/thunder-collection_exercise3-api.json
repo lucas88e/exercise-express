@@ -1,42 +1,42 @@
 {
     "client": "Thunder Client",
-    "collectionName": "exercise2-api",
-    "dateExported": "2024-05-03T11:16:48.007Z",
+    "collectionName": "exercise3-api",
+    "dateExported": "2024-05-03T13:06:34.319Z",
     "version": "1.1",
     "folders": [
         {
-            "_id": "dc3f8c1c-555d-40df-9b0a-53c14c52ebab",
+            "_id": "ebfb9b8c-ac8f-4d7a-8567-0e3ab9cafcd5",
             "name": "Testing",
             "containerId": "",
-            "created": "2024-05-03T09:15:56.012Z",
+            "created": "2024-05-03T12:19:21.120Z",
             "sortNum": 10000
         },
         {
-            "_id": "b9fd7282-67e0-4377-b1cf-14ea30e61a7e",
+            "_id": "f78f8198-f856-4fd5-8462-4196c162d1a8",
             "name": "Movie",
             "containerId": "",
-            "created": "2024-05-03T09:16:10.527Z",
+            "created": "2024-05-03T12:19:21.121Z",
             "sortNum": 20000
         },
         {
-            "_id": "e1f7bc28-d824-4ec5-825f-3ae5aec220d8",
+            "_id": "3e553f37-4999-4759-b844-f00e0f5416cc",
             "name": "Genre",
             "containerId": "",
-            "created": "2024-05-03T10:42:37.815Z",
+            "created": "2024-05-03T12:19:21.122Z",
             "sortNum": 30000
         }
     ],
     "requests": [
         {
-            "_id": "1339a5ae-7a2f-48aa-8755-f3f522595566",
-            "colId": "b841e9c0-8972-40c5-84e4-83baaf571d71",
-            "containerId": "dc3f8c1c-555d-40df-9b0a-53c14c52ebab",
+            "_id": "dcb5ef1c-8a1d-4fa2-8b15-40d6aaa424f0",
+            "colId": "66712048-6888-4324-9157-e4bb9fc5d760",
+            "containerId": "ebfb9b8c-ac8f-4d7a-8567-0e3ab9cafcd5",
             "name": "/health",
             "url": "/health",
             "method": "GET",
             "sortNum": 10000,
-            "created": "2024-05-03T09:15:56.013Z",
-            "modified": "2024-05-03T09:41:04.292Z",
+            "created": "2024-05-03T12:19:21.120Z",
+            "modified": "2024-05-03T12:19:21.120Z",
             "headers": [],
             "params": [],
             "tests": [],
@@ -83,15 +83,15 @@
             }
         },
         {
-            "_id": "a00fd608-587d-4a9f-927d-22d29d81c6c5",
-            "colId": "b841e9c0-8972-40c5-84e4-83baaf571d71",
-            "containerId": "b9fd7282-67e0-4377-b1cf-14ea30e61a7e",
+            "_id": "4415c04e-cfd7-4a26-837c-f78c8ae2d5df",
+            "colId": "66712048-6888-4324-9157-e4bb9fc5d760",
+            "containerId": "f78f8198-f856-4fd5-8462-4196c162d1a8",
             "name": "/movies",
             "url": "/movies",
             "method": "GET",
             "sortNum": 20000,
-            "created": "2024-05-03T09:16:24.260Z",
-            "modified": "2024-05-03T11:16:05.507Z",
+            "created": "2024-05-03T12:19:21.121Z",
+            "modified": "2024-05-03T12:19:21.121Z",
             "headers": [],
             "params": [],
             "tests": [],
@@ -117,15 +117,15 @@
             }
         },
         {
-            "_id": "c771ff20-1ca0-4166-a0c2-3f3bd2148881",
-            "colId": "b841e9c0-8972-40c5-84e4-83baaf571d71",
-            "containerId": "e1f7bc28-d824-4ec5-825f-3ae5aec220d8",
+            "_id": "cc69fd4c-e661-4afc-a0cf-f2fa71978c2e",
+            "colId": "66712048-6888-4324-9157-e4bb9fc5d760",
+            "containerId": "3e553f37-4999-4759-b844-f00e0f5416cc",
             "name": "/genres",
             "url": "/genres",
             "method": "GET",
             "sortNum": 20000,
-            "created": "2024-05-03T10:42:37.815Z",
-            "modified": "2024-05-03T10:45:15.510Z",
+            "created": "2024-05-03T12:19:21.122Z",
+            "modified": "2024-05-03T12:19:21.122Z",
             "headers": [],
             "params": [],
             "tests": [],
@@ -148,6 +148,50 @@
                     }
                 ]
             }
+        },
+        {
+            "_id": "a554c7ee-5f6c-4702-abb4-f52311c5c2ce",
+            "colId": "66712048-6888-4324-9157-e4bb9fc5d760",
+            "containerId": "3e553f37-4999-4759-b844-f00e0f5416cc",
+            "name": "/genres/:id",
+            "url": "/genres/802cbb0e-bf47-49a6-beca-6f22f0d50f88",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-05-03T12:19:37.710Z",
+            "modified": "2024-05-03T12:45:05.669Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Science Fiction\"\n}",
+                "form": []
+            },
+            "tests": [],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Verify request body is parsed as JSON\", () => {",
+                            "  expect(tc.response.json).to.have.property('name')",
+                            "})"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "9788aff5-eb39-4619-bf06-1bfee40fb50c",
+            "colId": "66712048-6888-4324-9157-e4bb9fc5d760",
+            "containerId": "3e553f37-4999-4759-b844-f00e0f5416cc",
+            "name": "/genres/:id",
+            "url": "/genres/f5d5e8a2-c1ab-44e7-936d-d6e7bcfbf313",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-05-03T12:19:39.673Z",
+            "modified": "2024-05-03T13:06:08.540Z",
+            "headers": [],
+            "params": [],
+            "tests": []
         }
     ],
     "settings": {
