@@ -40,9 +40,11 @@ router.delete('/:id', (req, res) => {
 		return res.status(404).json({ error: 'Genre not found' })
 	}
 
-	const deletedGenre = genres.splice(genreIndex, 1)[0]
+	const deletedGenre = { ...genres[genreIndex] }
 
-	res.status(204).json(deletedGenre)
+	genres.splice(genreIndex, 1)
+
+	res.status(200).json(deletedGenre)
 })
 
 module.exports = router
