@@ -1,0 +1,220 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "exercise2-api",
+    "dateExported": "2024-05-03T11:16:48.007Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "dc3f8c1c-555d-40df-9b0a-53c14c52ebab",
+            "name": "Testing",
+            "containerId": "",
+            "created": "2024-05-03T09:15:56.012Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "b9fd7282-67e0-4377-b1cf-14ea30e61a7e",
+            "name": "Movie",
+            "containerId": "",
+            "created": "2024-05-03T09:16:10.527Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "e1f7bc28-d824-4ec5-825f-3ae5aec220d8",
+            "name": "Genre",
+            "containerId": "",
+            "created": "2024-05-03T10:42:37.815Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "1339a5ae-7a2f-48aa-8755-f3f522595566",
+            "colId": "b841e9c0-8972-40c5-84e4-83baaf571d71",
+            "containerId": "dc3f8c1c-555d-40df-9b0a-53c14c52ebab",
+            "name": "/health",
+            "url": "/health",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-05-03T09:15:56.013Z",
+            "modified": "2024-05-03T09:41:04.292Z",
+            "headers": [],
+            "params": [],
+            "tests": [],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"There is a linked environment called 'express-api-env\", () => {",
+                            "    const {environmentName} = tc.info",
+                            "    ",
+                            "    expect(environmentName).to.be.ok;",
+                            "    expect(environmentName).to.equal(\"express-api-env\");",
+                            "});",
+                            "",
+                            "tc.test(\"The environment variable 'host' exists\", () => {",
+                            "      expect(tc.getVar(\"host\")).to.be.ok",
+                            "})",
+                            "",
+                            "tc.test(\"Ensure 'host' environment variable and collection settings set expected Base URL\", () => {",
+                            "      const relativePath = tc.request.url.replace(tc.getVar(\"host\") + \"/api\", \"\")",
+                            "      ",
+                            "      expect(tc.getVar(\"host\")).to.equal(\"localhost:3000\");",
+                            "    ",
+                            "      expect(relativePath).to.equal(\"/health\");",
+                            "})",
+                            "",
+                            "tc.test(\"Should respond with status 200\", () => {",
+                            "      expect(tc.response.status).to.equal(200);",
+                            "})",
+                            "",
+                            "tc.test(\"Should respond with relevant data in JSON: {success: true, data }\", () => {",
+                            "      const responseBody = tc.response.json",
+                            "    ",
+                            "      expect(responseBody).to.be.an(\"object\");",
+                            "      ",
+                            "      expect(responseBody).to.have.property(\"success\");",
+                            "      expect(responseBody).to.have.property(\"data\");",
+                            "      ",
+                            "      expect(responseBody.success).to.equal(true);",
+                            "})"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "a00fd608-587d-4a9f-927d-22d29d81c6c5",
+            "colId": "b841e9c0-8972-40c5-84e4-83baaf571d71",
+            "containerId": "b9fd7282-67e0-4377-b1cf-14ea30e61a7e",
+            "name": "/movies",
+            "url": "/movies",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-05-03T09:16:24.260Z",
+            "modified": "2024-05-03T11:16:05.507Z",
+            "headers": [],
+            "params": [],
+            "tests": [],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Verify correct import of movie data\", () => {",
+                            "  const movies = JSON.parse(tc.getVar('movies'))",
+                            "",
+                            "  expect(tc.response.status).to.not.equal(0);",
+                            "  expect(tc.response.status).to.not.equal(500);",
+                            "",
+                            "  expect(tc.response.text).to.not.contain(\"movies is not defined\");",
+                            " ",
+                            "  expect(tc.response.json).to.deep.equal(movies);",
+                            "",
+                            "});",
+                            ""
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "c771ff20-1ca0-4166-a0c2-3f3bd2148881",
+            "colId": "b841e9c0-8972-40c5-84e4-83baaf571d71",
+            "containerId": "e1f7bc28-d824-4ec5-825f-3ae5aec220d8",
+            "name": "/genres",
+            "url": "/genres",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-05-03T10:42:37.815Z",
+            "modified": "2024-05-03T10:45:15.510Z",
+            "headers": [],
+            "params": [],
+            "tests": [],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.test(\"Verify correct import of genre data\", () => {",
+                            "  const genres = JSON.parse(tc.getVar('genres'))",
+                            "  ",
+                            "  expect(tc.response.status).to.not.equal(0);",
+                            "  expect(tc.response.status).to.not.equal(500);",
+                            "  ",
+                            "  expect(tc.response.text).to.not.contain(\"genres is not defined\");",
+                            " ",
+                            "  expect(tc.response.json).to.deep.equal(genres);",
+                            "});",
+                            ""
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "{{host}}/api"
+        },
+        "postReq": {
+            "inlineScripts": [
+                {
+                    "script": [
+                        "const movies = [",
+                        "\t{",
+                        "\t\tid: 'c1758fd3-82c2-4c35-b4e7-b9e78b37a0c2',",
+                        "\t\ttitle: 'The Secret Garden',",
+                        "\t\tyear: 2020,",
+                        "\t\tgenreId: 'a5c3e8b1-8502-4e7e-891b-d30a756a8ad4',",
+                        "\t\tdirector: 'Marc Munden',",
+                        "\t},",
+                        "\t{",
+                        "\t\tid: '7a93ab49-8600-4a70-a04b-28f3cc459fe0',",
+                        "\t\ttitle: \"Harry Potter and the Philosopher's Stone\",",
+                        "\t\tyear: 2001,",
+                        "\t\tgenreId: 'a5c3e8b1-8502-4e7e-891b-d30a756a8ad4',",
+                        "\t\tdirector: 'Chris Columbus',",
+                        "\t},",
+                        "\t{",
+                        "\t\tid: '82e85b7f-ae47-4c0c-9732-28b2f689c0b0',",
+                        "\t\ttitle: 'Inception',",
+                        "\t\tyear: 2010,",
+                        "\t\tgenreId: '802cbb0e-bf47-49a6-beca-6f22f0d50f88',",
+                        "\t\tdirector: 'Christopher Nolan',",
+                        "\t},",
+                        "\t{",
+                        "\t\tid: '2a39fb4e-26fb-41a3-b7a5-d307e944ec48',",
+                        "\t\ttitle: 'The Shawshank Redemption',",
+                        "\t\tyear: 1994,",
+                        "\t\tgenreId: 'f5d5e8a2-c1ab-44e7-936d-d6e7bcfbf313',",
+                        "\t\tdirector: 'Frank Darabont',",
+                        "\t},",
+                        "]",
+                        "",
+                        "const genres = [",
+                        "\t{",
+                        "\t\tid: 'a5c3e8b1-8502-4e7e-891b-d30a756a8ad4',",
+                        "\t\tname: 'Fantasy',",
+                        "\t},",
+                        "\t{",
+                        "\t\tid: '802cbb0e-bf47-49a6-beca-6f22f0d50f88',",
+                        "\t\tname: 'Sci-Fi',",
+                        "\t},",
+                        "\t{",
+                        "\t\tid: 'f5d5e8a2-c1ab-44e7-936d-d6e7bcfbf313',",
+                        "\t\tname: 'Drama',",
+                        "\t},",
+                        "]",
+                        "",
+                        "tc.setVar('movies', movies, 'request')",
+                        "tc.setVar('genres', genres, 'request')",
+                        "",
+                        "tc.test(\"Verify server is running\", () => {",
+                        "    expect(tc.response.status).to.not.equal(0);",
+                        "});",
+                        ""
+                    ]
+                }
+            ]
+        },
+        "envId": "74ac5446-d3e1-4d4a-822e-2d38bbea1b91"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "client": "Thunder Client",
+    "environmentName": "express-api-env",
+    "dateExported": "2024-05-03T11:16:36.975Z",
+    "version": "1.0",
+    "variables": [
+        {
+            "name": "port",
+            "value": "3000"
+        },
+        {
+            "name": "address",
+            "value": "localhost"
+        },
+        {
+            "name": "host",
+            "value": "{{address}}:{{port}}"
+        }
+    ]
+}
